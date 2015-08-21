@@ -19,12 +19,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<body style="background: #e1e9eb;">
 		<form action="<%= basePath%>CardServlet.action" id="mainForm" method="post">
 			<div class="right">
-				<div class="current">当前位置：<a href="javascript:void(0)" style="color:#6E6E6E;">内容管理</a> &gt; 内容列表</div>
+				<div class="current">当前位置：<a href="javascript:void(0)" style="color:#6E6E6E;">卡片管理</a> &gt; 银行卡列表</div>
 				<div class="rightCont">
-					<p class="g_title fix">内容列表 
+					<p class="g_title fix">银行卡列表 
 					<a class="btn03" href="#">新 增</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					<a class="btn03" href="javascript:deleteBatch('<%=basePath%>')">删 除</a>
+					<a class="btn03" href="">删 除</a>
 					</p>
 					<table class="tab1">
 						<tbody>
@@ -47,8 +47,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<tr>
 								    <th><input type="checkbox" id="all" onclick="#"/></th>
 								    <th>序号</th>
-								    <th>指令名称</th>
-								    <th>描述</th>
+								    <th>持卡人</th>
+								    <th>银行卡号</th>
+								    <th>银行名称</th>
+								    <th>卡余额</th>
 								    <th>操作</th>
 								</tr>
 								<c:forEach items="${queryList}" var="list" varStatus="status" >
@@ -56,8 +58,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<tr <c:if test="${status.index%2!=0}">style='background-color:#ECF6EE;'</c:if>>
 									<td><input type="checkbox" name="id" value=${list.id} /></td>
 									<td>${status.index+1}</td>
+									<td>${list.card_owner}</td>
 									<td>${list.card_no}</td>
 									<td>${list.card_name}</td>
+									<td>${list.money}</td>
 									<td>
 										<a href="${basePath}Edit.action?id=${list.id}">修改</a>&nbsp;&nbsp;&nbsp;
 										<a href="${basePath}DeleteOneServlet.action?id=${list.id}">删除</a>
