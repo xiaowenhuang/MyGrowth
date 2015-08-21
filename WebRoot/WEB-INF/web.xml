@@ -8,12 +8,41 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
-	<servlet>
+	
+	<!-- spring 应用上下文， 理解层次化的ApplicationContext -->
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>/WEB-INF/configs/spring/applicationContext*.xml</param-value>
+  </context-param>
+  
+  <listener>
+  	<listener-class>
+  		org.springframework.web.context.ContextLoaderListener
+  	</listener-class>
+  </listener>
+	
+	  <!-- DispatcherServlet,SpringMVC的核心 -->
+  <servlet>
+	<servlet-name>mvc-dispatcher</servlet-name>
+	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	<!-- DispatcherServlet对应的上下文配置，默认为/WEB-INF/$servlet-name$-servlet.xml -->
+	<init-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/configs/spring/mvc-dispatcher-servlet.xml</param-value>
+	</init-param>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>mvc-dispatcher</servlet-name>
+	<!-- mvc-dispatcher拦截所有请求 -->
+	<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+<!-- 	<servlet>
 	<servlet-name>CardServlet</servlet-name>
 	<servlet-class>com.sven.servlet.CardServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 	<servlet-name>CardServlet</servlet-name>
 	<url-pattern>/CardServlet.action</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
 </web-app>
