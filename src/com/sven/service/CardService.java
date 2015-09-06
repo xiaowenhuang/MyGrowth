@@ -17,4 +17,10 @@ public class CardService {
 		return cardDao.queryCard(cardNo, cardOwner);
 	}
 
+	public Card queryOneCard(String cardNo, String cardOwner) {
+		// TODO Auto-generated method stub
+		CardDao cardDao = new CardDao();
+		return cardDao.queryOneCard(cardNo, cardOwner);
+	}
+
 }

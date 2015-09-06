@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<td>${list.card_name}</td>
 									<td>${list.money}</td>
 									<td>
-										<a href="${basePath}Edit.action?id=${list.id}">修改</a>&nbsp;&nbsp;&nbsp;
+										<a href="javascript:toEdit('<%=basePath %>','${list.card_no}','${list.card_owner}');">修改</a>&nbsp;&nbsp;&nbsp;
 										<a href="${basePath}DeleteOneServlet.action?id=${list.id}">删除</a>
 									</td>
 								</tr>
