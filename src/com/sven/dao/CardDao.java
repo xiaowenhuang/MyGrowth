@@ -15,7 +15,7 @@ import com.sven.db.DBAccess;
  *
  */
 public class CardDao {
-
+	//查询所有卡
 	public List<Card> queryCard(String cardNo, String cardOwner) {
 		// TODO Auto-generated method stub
 		DBAccess dbAccess = new DBAccess();
@@ -37,7 +37,7 @@ public class CardDao {
 		}
 		return cardList;
 	}
-
+	//修改查询
 	public Card queryOneCard(String cardNo, String cardOwner) {
 		// TODO Auto-generated method stub
 		DBAccess dbAccess = new DBAccess();
@@ -57,6 +57,24 @@ public class CardDao {
 			}
 		}
 		return card;
+	}
+	//保存数据
+	public void saveCard(Card card) {
+		DBAccess dbAccess = new DBAccess();
+		SqlSession sqlSession = null;
+		try{
+			sqlSession = dbAccess.getSqlSession();
+			sqlSession.insert("Card.insertCard", card);
+			sqlSession.commit();
+		}catch(IOException e){
+			e.printStackTrace();
+		}finally{
+			if(sqlSession != null){
+				sqlSession.close();
+			}
+		}
+		// TODO Auto-generated method stub
+		
 	}
 
 }

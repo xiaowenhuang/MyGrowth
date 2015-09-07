@@ -17,12 +17,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 	</head>
 	<body style="background: #e1e9eb;">
-		<form action="<%= basePath%>CardServlet.action" id="mainForm" method="post">
+		<form action="<%= basePath%>card/doPost" id="mainForm" method="get">
 			<div class="right">
 				<div class="current">当前位置：<a href="javascript:void(0)" style="color:#6E6E6E;">卡片管理</a> &gt; 银行卡列表</div>
 				<div class="rightCont">
 					<p class="g_title fix">银行卡列表 
-					<a class="btn03" href="#">新 增</a>
+					<a class="btn03" href="javascript:addCard('<%=basePath %>');">新 增</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;
 					<a class="btn03" href="">删 除</a>
 					</p>

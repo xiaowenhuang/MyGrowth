@@ -23,4 +23,11 @@ public class CardService {
 		return cardDao.queryOneCard(cardNo, cardOwner);
 	}
 
+	public void saveCard(Card card) {
+		CardDao cardDao = new CardDao();
+		cardDao.saveCard(card);
+		// TODO Auto-generated method stub
+		
+	}
+
 }
