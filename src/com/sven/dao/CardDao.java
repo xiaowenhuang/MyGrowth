@@ -76,5 +76,24 @@ public class CardDao {
 		// TODO Auto-generated method stub
 		
 	}
+	public void deleteCard(Card card) {
+		// TODO Auto-generated method stub
+		DBAccess dbAccess = new DBAccess();
+		SqlSession sqlSession = null;
+		try{
+			sqlSession = dbAccess.getSqlSession();
+			sqlSession.delete("Card.deleteCard", card);
+			sqlSession.commit();
+			
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		finally{
+			if(sqlSession != null){
+				sqlSession.close();
+			}
+		}
+		
+	}
 
 }

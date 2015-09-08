@@ -30,4 +30,10 @@ public class CardService {
 		
 	}
 
+	public void deleteCard(Card card) {
+		// TODO Auto-generated method stub
+		CardDao cardDao = new CardDao();
+		cardDao.deleteCard(card);
+	}
+
 }

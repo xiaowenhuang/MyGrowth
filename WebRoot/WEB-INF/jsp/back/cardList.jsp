@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<p class="g_title fix">银行卡列表 
 					<a class="btn03" href="javascript:addCard('<%=basePath %>');">新 增</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					<a class="btn03" href="">删 除</a>
+					<a class="btn03" href="#">删 除</a>
 					</p>
 					<table class="tab1">
 						<tbody>
@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<td>${list.money}</td>
 									<td>
 										<a href="javascript:toEdit('<%=basePath %>','${list.card_no}','${list.card_owner}');">修改</a>&nbsp;&nbsp;&nbsp;
-										<a href="${basePath}DeleteOneServlet.action?id=${list.id}">删除</a>
+										<a href="javascript:deleteCard('<%=basePath %>','${list.card_no}','${list.card_owner}')">删除</a>
 									</td>
 								</tr>
 							 </c:forEach>
