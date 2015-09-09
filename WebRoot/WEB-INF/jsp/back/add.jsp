@@ -11,6 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head> 
   <body>
     <form action="<%=basePath%>add/saveCard" id="mainform" method="get">
+
 	    <table>
 	    <tr columns=6>
 	    	<td>持卡人</td>
@@ -29,7 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	<td><input id="null1" type="text" name="null1"/></td>
 	    </tr>
 	    </table>
-	        <input type="submit" value="保存11" />
+	        <input type="submit" value="保存" />
+	        <button onclick="window.history.go(-1)">返回</button>
     </form>
 
   </body>

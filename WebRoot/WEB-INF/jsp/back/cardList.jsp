@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<table class="tab2" width="100%">
 							<tbody>
 								<tr>
-								    <th><input type="checkbox" id="all" onclick="#"/></th>
+								    <th><input type="checkbox" id="all" onclick="selectAll()"/></th>
 								    <th>序号</th>
 								    <th>持卡人</th>
 								    <th>银行卡号</th>

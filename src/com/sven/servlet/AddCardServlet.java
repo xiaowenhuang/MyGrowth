@@ -1,5 +1,10 @@
 package com.sven.servlet;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,19 +20,29 @@ import com.sven.service.CardService;
 @Controller
 @RequestMapping("add")
 public class AddCardServlet {
-	
+	private String backUrl = ""; 
 	//跳转到新增页面
 	@RequestMapping(value="newCard",method=RequestMethod.GET)
-	String addNewCard(){	
+	String addNewCard( HttpServletRequest req){
+		backUrl = req.getRequestURI();
 		return "back/add";
 	}
 	//保存新增数据并跳转回初始查询页面
 	@RequestMapping(value="saveCard",method=RequestMethod.GET)
-	String addCardData(Card card){
+	void addCardData(Card card, HttpServletRequest req,HttpServletResponse res){
 		//card.setId(id);
+		//backUrl = req.getRequestURI();
+		System.out.println(backUrl);
+		
 		CardService cardService = new CardService();
 		cardService.saveCard(card);
-		return "back/cardList";
+		try {
+			res.sendRedirect("/MyGrowth/card/doPost");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//return "back/cardList";
 	}
 
 }
