@@ -64,7 +64,7 @@ public class CardDao {
 		SqlSession sqlSession = null;
 		try{
 			sqlSession = dbAccess.getSqlSession();
-			sqlSession.insert("Card.insertCard", card);
+			sqlSession.insert("TelList.insertTelList", card);
 			sqlSession.commit();
 		}catch(IOException e){
 			e.printStackTrace();
