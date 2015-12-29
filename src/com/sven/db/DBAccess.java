@@ -21,6 +21,7 @@ public class DBAccess {
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
 		//通过sqlsessionfactory打开一个数据库会话
 		SqlSession sqlSession = sqlSessionFactory.openSession();
+		reader.close();
 		return sqlSession;
 	}
 }

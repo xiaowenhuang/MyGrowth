@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	<td>卡余额</td>
 	    	<td><input id="money" type="text" name="money" /></td>
 	    	<td>备用</td>
-	    	<td><input id="null1" type="text" name="null1"/></td>
+	    	<td><input id="null2" type="text" name="null2"/></td>
 	    </tr>
 	    </table>
 	        <input type="submit" value="保存" />

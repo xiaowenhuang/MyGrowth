@@ -32,17 +32,15 @@ public class AddCardServlet {
 	void addCardData(Card card, HttpServletRequest req,HttpServletResponse res){
 		//card.setId(id);
 		//backUrl = req.getRequestURI();
-		System.out.println(backUrl);
+		System.out.println("test:"+backUrl);
 		
 		CardService cardService = new CardService();
 		cardService.saveCard(card);
 		try {
 			res.sendRedirect("/MyGrowth/card/doPost");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//return "back/cardList";
 	}
 
 }
