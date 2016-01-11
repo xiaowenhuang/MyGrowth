@@ -15,12 +15,12 @@ import com.sven.db.DBAccess;
  *
  */
 public class CardDao {
+	DBAccess dbAccess = new DBAccess();
+	SqlSession sqlSession = null;
+	
 	//查询所有卡
 	public List<Card> queryCard(String cardNo, String cardOwner) {
-		// TODO Auto-generated method stub
-		DBAccess dbAccess = new DBAccess();
 		List<Card> cardList = new ArrayList<Card>();
-		SqlSession sqlSession = null;
 		try{
 			sqlSession = dbAccess.getSqlSession();
 			Card param = new Card();
@@ -39,10 +39,7 @@ public class CardDao {
 	}
 	//修改查询
 	public Card queryOneCard(String cardNo, String cardOwner) {
-		// TODO Auto-generated method stub
-		DBAccess dbAccess = new DBAccess();
 		Card card = new Card();
-		SqlSession sqlSession = null;
 		try{
 			sqlSession = dbAccess.getSqlSession();
 			Card param=  new Card();
@@ -60,8 +57,6 @@ public class CardDao {
 	}
 	//保存数据
 	public void saveCard(Card card) {
-		DBAccess dbAccess = new DBAccess();
-		SqlSession sqlSession = null;
 		try{
 			sqlSession = dbAccess.getSqlSession();
 			sqlSession.insert("Card.insertCard", card);
@@ -73,13 +68,9 @@ public class CardDao {
 				sqlSession.close();
 			}
 		}
-		// TODO Auto-generated method stub
 		
 	}
 	public void deleteCard(Card card) {
-		// TODO Auto-generated method stub
-		DBAccess dbAccess = new DBAccess();
-		SqlSession sqlSession = null;
 		try{
 			sqlSession = dbAccess.getSqlSession();
 			sqlSession.delete("Card.deleteCard", card);
@@ -94,6 +85,20 @@ public class CardDao {
 			}
 		}
 		
+	}
+	public int getRecordCount() {
+		int recordCount = 0;
+		try{
+			sqlSession = dbAccess.getSqlSession();
+			recordCount = sqlSession.selectOne("Card.recordCount");
+		}catch(IOException e ){
+			e.printStackTrace();
+		}finally{
+			if(sqlSession != null){
+				sqlSession.close();
+			}
+		}
+		return recordCount;
 	}
 
 }

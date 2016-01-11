@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr>
 								<td width="90" align="right">银行卡号：</td>
 								<td>
-									<input type="text" name="cardNo" class="allInput" value="${cardNo}"/>
+									<input type="text" name="cardNo" class="allInput" value="${cardNo}" />
 								</td>
 								<td width="90" align="right">持卡人姓名：</td>
 								<td>
@@ -72,13 +72,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</table>
 						<div class='page fix'>
 							共 <b>4</b> 条
-							<a href='###' class='first'>首页</a>
-							<a href='###' class='pre'>上一页</a>
-							当前第<span>1/1</span>页
-							<a href='###' class='next'>下一页</a>
-							<a href='###' class='last'>末页</a>
-							跳至&nbsp;<input type='text' value='1' class='allInput w28' />&nbsp;页&nbsp;
+							<a href="javascript:void(0)" onclick="paginationQuery('First','<%=basePath %>');"  class='first'>首页</a>
+							<a href="javascript:void(0)" onclick='paginationQuery("Previous","<%=basePath %>");' class='pre'>上一页</a>
+							当前第<span>
+							<input type="text" id="currentPage" readonly="readonly" name="currentPage" value="1" style="width:10px"/>
+							</span>页
+							<a href="javascript:void(0)" onclick='paginationQuery("Next","<%=basePath %>");' class='next'>下一页</a>
+							<a href="javascript:void(0)" onclick='paginationQuery("Last","<%=basePath %>");' class='last'>末页</a>
+							跳至&nbsp;<input type='text' value='1' style="width:50px" />&nbsp;页&nbsp;
 							<a href='###' class='go'>GO</a>
+							<%--总页数--%>
+							<input type="hidden" id="totalPageCount" value="">
 						</div>
 					</div>
 				</div>

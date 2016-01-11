@@ -10,30 +10,25 @@ import com.sven.dao.CardDao;
  *
  */
 public class CardService {
-
+	CardDao cardDao = new CardDao();
 	public List<Card> queryCard(String cardNo, String cardOwner) {
-		// TODO Auto-generated method stub
-		CardDao cardDao = new CardDao();
 		return cardDao.queryCard(cardNo, cardOwner);
 	}
 
 	public Card queryOneCard(String cardNo, String cardOwner) {
-		// TODO Auto-generated method stub
-		CardDao cardDao = new CardDao();
 		return cardDao.queryOneCard(cardNo, cardOwner);
 	}
 
 	public void saveCard(Card card) {
-		CardDao cardDao = new CardDao();
 		cardDao.saveCard(card);
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void deleteCard(Card card) {
-		// TODO Auto-generated method stub
-		CardDao cardDao = new CardDao();
 		cardDao.deleteCard(card);
+	}
+
+	public int getRecordCount() {
+		return cardDao.getRecordCount();
 	}
 
 }

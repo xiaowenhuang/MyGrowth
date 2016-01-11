@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -22,5 +22,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     This is my JSP page. <br>
+    
+    <%--jsp内置对象，request < session < application.  
+     所谓内置对像就是servlet容器或者说jsp容器已经帮助实例化了的对象，
+     不需要再次实例化直接使用的对象。  下面就是一个application的例子
+     --%>
+    <% 
+    	String contextConfigLocation = application.getInitParameter("contextConfigLocation"); 
+        out.println("contextConfigLocation:"+contextConfigLocation+"<br>");
+        %>
+
   </body>
 </html>

@@ -20,6 +20,11 @@
     <if test="card_owner != null and !&quot;&quot;.equals(card_owner.trim())"> and card_owner like '%' #{card_owner} '%'</if>
     </where>  
     </select>
+    
+    <select id="recordCount" resultType="int">
+    select count(*) from card
+    </select>
+    
     <!-- insert -->
     <insert id="insertCard" parameterType="com.sven.bean.Card">
     insert into card(card_name,card_no,money,card_owner)values(#{card_name},#{card_no},#{money},#{card_owner})
