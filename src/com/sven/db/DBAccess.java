@@ -14,7 +14,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
  *
  */
 public class DBAccess {
-	public SqlSession getSqlSession() throws IOException{
+	public  SqlSession getSqlSession() throws IOException{
 		//通过配置文件获取数据库连接信息
 		Reader reader = Resources.getResourceAsReader("com/sven/config/Configuration.xml");
 		//通过配置信息构建一个SqlSessionFactory

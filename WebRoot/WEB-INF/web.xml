@@ -9,6 +9,72 @@
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 	
+	<!-- 原始servlet层配置begin -->
+	<servlet>
+		<servlet-name>MyServlet</servlet-name>
+		<servlet-class>com.sven.test.ServletTest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyServlet</servlet-name>
+		<url-pattern>/myTest</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>Myreg</servlet-name>
+		<servlet-class>com.exercise.servlet.RegServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Myreg</servlet-name>
+		<url-pattern>/RegServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MyLogin</servlet-name>
+		<servlet-class>com.exercise.servlet.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyLogin</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MyExit</servlet-name>
+		<servlet-class>com.exercise.servlet.UserExitServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyExit</servlet-name>
+		<url-pattern>/ExitServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>com.addressbook.servlet.UserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/UserServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GroupServlet</servlet-name>
+		<servlet-class>com.addressbook.servlet.GroupServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GroupServlet</servlet-name>
+		<url-pattern>/GroupServlet</url-pattern>
+	</servlet-mapping>
+		<servlet>
+		<servlet-name>LinkmanServlet</servlet-name>
+		<servlet-class>com.addressbook.servlet.LinkmanServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LinkmanServlet</servlet-name>
+		<url-pattern>/LinkmanServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 原始servlet层配置  end-->
+	
+	
+	
 	<!-- spring 应用上下文， 理解层次化的ApplicationContext -->
   <context-param>
   	<param-name>contextConfigLocation</param-name>
@@ -36,13 +102,21 @@
 	<!-- mvc-dispatcher拦截所有请求 -->
 	<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
-<!-- 	<servlet>
-	<servlet-name>CardServlet</servlet-name>
-	<servlet-class>com.sven.servlet.CardServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-	<servlet-name>CardServlet</servlet-name>
-	<url-pattern>/CardServlet.action</url-pattern>
-	</servlet-mapping> -->
+
+	<!-- 字符编码过滤器 -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>com.sven.util.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>	
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+
 </web-app>

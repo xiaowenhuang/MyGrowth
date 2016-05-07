@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sven.bean.Card;
 import com.sven.service.CardService;
@@ -26,10 +25,8 @@ public class CardServlet extends HttpServlet {
 	CardService cardService = new CardService();
 	
 	@RequestMapping("doPost")
-	//@ResponseBody
 	protected void testPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		//设置编码
 		req.setCharacterEncoding("UTF-8");
 		//接收页面参数
@@ -53,10 +50,7 @@ public class CardServlet extends HttpServlet {
 		/**
 		 * servlet只负责接收和回传，业务逻辑在service层处理
 		 */
-
-		//req.setAttribute("queryList", cardService.queryCard(cardNo,cardOwner));
 		req.setAttribute("queryList", cardList);
-		
 		//向页面跳转
 		req.getRequestDispatcher("/WEB-INF/jsp/back/cardList.jsp").forward(req, resp);
 		//return page;
@@ -64,12 +58,10 @@ public class CardServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		this.doPost(req, resp);
 	}
 	@RequestMapping(value="queryBy",method=RequestMethod.GET)
 	String querySituation(@RequestParam("")String cardNo,@RequestParam("")String cardOwner,Model model){
-		
 		return "back/cardList";
 	}
 }
