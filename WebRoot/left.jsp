@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <form action="">
     	<table width="217" height="100%" border="0" align="center" cellpadding="0" cellspacing="0" background="images/left_bg.jpg"	>
     	<tr><td height="37" colspan="2" background="images/title.jpg">&nbsp;</td></tr>
-    	<c:forEach>
+    	<%-- <c:forEach> --%>
     	<tr>
     		<td width="82" height="30" align="right" background="images/left_bg.jpg">
     		<img alt="" src="images/ico.jpg" width="9" height="9"></td>
@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<a href="LinkmanServlet?action=queryLinkman&id=${groupForm.id }">${groupForm.name }</a>
     		</td>
     	</tr>
-    	</c:forEach>
+    	<%-- </c:forEach> --%>
     	<tr>
     		<td colspan="2" align="right" valign="top" style="padding-right:20px;" background="images/left_bg.jpg">
     		<img alt="" src="images/left_line.jpg" width="152" height="3"></td>

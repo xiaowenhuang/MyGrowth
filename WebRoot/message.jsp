@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <tr>
     	<td align="right" width="30%">头像:</td>
     	<td>
-    		<img src="<%=user.getPhoto() %>"
+    		<img src="<%=user.getPhoto() %>" />
     	</td>
     </tr>
     <tr>

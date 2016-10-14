@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<<jsp:include page="GroupServlet">
+<%-- <jsp:include page="GroupServlet;">
 	<jsp:param value="query" name="action"/>
-</jsp:include>
+</jsp:include> --%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
